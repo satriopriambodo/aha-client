@@ -9,72 +9,33 @@ import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 import JwtDecode from "jwt-decode";
 import Cookies from "js-cookie";
+import { fetchUserData, updateUser } from "../../redux/actions/user";
 
-const getDetailUser = (id) => async (dispatch) => {
-  try {
-    dispatch({
-      type: "GET_DETAIL_USER",
-      payload: null,
-    });
-    const res = await axios.get(`https://aha-satrio.herokuapp.com/users/${id}`);
+function EditProfilePage() {
+  // const router = useRouter();
+  // const dispatch = useDispatch();
+  // const [form, setForm] = useState({
+  //   name: "",
+  // });
 
-    dispatch({
-      type: "GET_DETAIL_USER_SUCCESS",
-      payload: res.data,
-    });
-  } catch (error) {
-    dispatch({
-      type: "GET_DETAIL_USER_FAILED",
-      payload: error.message,
-    });
-  }
-};
+  // dispatch(update(form.name));
 
-// const updateUser = (data) => {
-//   return new Promise((resolve, reject) => {
-//     axios.put();
-//   });
-// };
+  // const [decode, setDecode] = useState("");
+  // const [isLoading, setIsLoading] = useState(false);
 
-function EditProfilePage(id) {
-  console.log(id, "id<<<<<<<<<<<<");
-  const router = useRouter();
-  const [form, setForm] = useState({
-    store_name: "",
-  });
-  const [isLoading, setIsLoading] = useState(false);
-
-  const dispatch = useDispatch();
-  axios.get(`https://aha-satrio.herokuapp.com/users/${id}`);
-  const access_token = Cookies.get("access_token");
-  console.log(access_token, "ggggg");
-  let decoded = "";
-  if (access_token) {
-    decoded = JwtDecode("access_token");
-  }
-
-  const detailUser = useSelector((state) => {
-    return state.detailUser;
-  });
-
-  useEffect(() => {
-    dispatch(getDetailUser(decoded.id));
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (detailUser.data[0]) {
-      setForm({
-        ...form,
-        store_name: detailUser.data[0].store.store_name,
-      });
-    }
-  }, [detailUser]);
+  // useEffect(() => {
+  //   dispatch(fetchUserData());
+  // });
+  // const userData = useSelector((state) => {
+  //   console.log(state.userData, ".......s......");
+  //   return state.userData;
+  // });
 
   const handleSubmit = (id) => async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("store_name", form.store_name);
+    formData.append("name", form.name);
 
     if (!form.name) {
       Swal.fire({
@@ -130,11 +91,14 @@ function EditProfilePage(id) {
               <input
                 type="text"
                 className="block border border-grey-light w-full p-3 rounded mb-4"
-                name="email"
+                name="name"
                 placeholder="Change Name"
-                onChange={(event) =>
-                  setForm({ ...form, store_name: event.target.value })
-                }
+                // value={form.name}
+                onChange={(e) => setForm(e.target.value)}
+
+                // onChange={(event) =>
+                //   setForm({ ...form, store_name: event.target.value })
+                // }
               />
 
               <button

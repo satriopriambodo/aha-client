@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import Head from "next/head";
 // import { useDispatch } from "react-redux";
-// import { authActions } from "../../store/auth";
 // import Login from "../../components/Login";
 import Swal from "sweetalert2";
 // import Image from "next/image";

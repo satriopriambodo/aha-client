@@ -8,8 +8,9 @@ const axiosInterceptors = axios.create({
 axiosInterceptors.interceptors.request.use(
   (config) => {
     config.headers = {
-      Authorization: `${Cookies.get("access_token")}`,
+      access_token: localStorage.getItem("access_token"),
     };
+    console.log(config, "config intercept..............");
     return config;
   },
   (error) => {
@@ -28,7 +29,7 @@ axiosInterceptors.interceptors.response.use(
       Cookies.remove("access_token");
       localStorage.clear();
       if (Cookies.get("access_token")) {
-        window.location.href = "/users/login";
+        window.location.href = "/login";
       }
     }
     return Promise.reject(error);

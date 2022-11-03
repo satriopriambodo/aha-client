@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import { Fragment } from "react";
 import Layout from "../components/layout/Layout";
 import { Provider } from "react-redux";
-import store from "../store/index";
+import { wrapper, store } from "../redux/store";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -16,4 +16,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
