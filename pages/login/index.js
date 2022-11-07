@@ -1,14 +1,8 @@
 import { Fragment } from "react";
 import Head from "next/head";
-// import { useDispatch } from "react-redux";
-// import Login from "../../components/Login";
 import Swal from "sweetalert2";
-// import Image from "next/image";
-// import Link from "next/link";
-// import { login } from "../../redux/actions/auth";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-// import Cookies from "js-cookie";
 import axios from "axios";
 
 function Auth() {

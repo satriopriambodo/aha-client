@@ -6,16 +6,12 @@ import Cookies from "js-cookie";
 
 export default function Home() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchUserData());
   }, []);
 
   const { userData } = useSelector((store) => store);
-  console.log(userData, "userData<<<<<1");
-
-  // const { name, email, numberOfTimesLoggedIn } = useSelector(
-  //   (state) => state.user
-  // );
 
   return (
     <Fragment>

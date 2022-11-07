@@ -1,8 +1,11 @@
 import Link from "next/link";
 import Swal from "sweetalert2";
 import { useRouter } from "next/router";
+// import { useSession } from "next-auth/react";
 
 function MainNavigation() {
+  // const [session, loading] = useSession();
+  // console.log({ session, loading }, "sess load<<<<<<<<<<<<<<<");
   const router = useRouter();
   const onLogout = () => {
     Swal.fire({

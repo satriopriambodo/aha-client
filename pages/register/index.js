@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 import Head from "next/head";
-// import Register from "../../components/Register";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import axios from "axios";
@@ -33,9 +32,6 @@ function RegisterPage(props) {
       axios
         .post("https://aha-satrio.herokuapp.com/users/register", form)
         .then((res) => {
-          // console.log(res.data, "ssssss");
-          // localStorage.setItem("access_token", res.data.access_token);
-
           Swal.fire({
             title: "Success!",
             text: res.message,

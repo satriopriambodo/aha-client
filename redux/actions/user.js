@@ -5,6 +5,9 @@ import {
 } from "../types";
 // import axios from "../../utils/axios";
 import axios from "axios";
+// import { useRouter } from "next/router";
+
+// const router = useRouter();
 
 const getUserData = (payload) => {
   return { type: GET_USER_DATA_SUCCESS, payload };
@@ -20,6 +23,9 @@ const getUserDataPending = (payload) => {
 
 export const fetchUserData = () => async (dispatch) => {
   try {
+    // if (!localStorage.getItem("access_token")) {
+    //   router.push("/login");
+    // }
     dispatch({
       type: GET_USER_DATA_PENDING,
       payload: null,
