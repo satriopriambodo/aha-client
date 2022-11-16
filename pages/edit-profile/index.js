@@ -20,8 +20,6 @@ function EditProfilePage() {
   const { id } = useParams();
 
   const token = localStorage.getItem("access_token");
-  console.log(token, "token<<<<<<<<<<<<<<<<<<");
-
   let decoded = "";
   if (token) {
     decoded = JwtDecode(token);
@@ -46,11 +44,6 @@ function EditProfilePage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log(form.name, " form.name<<<<<");
-
-    // const formData = new FormData();
-    // formData.append("name", form.name);
 
     dispatch(updateUser(decoded.id, form))
       .then((data) => {
