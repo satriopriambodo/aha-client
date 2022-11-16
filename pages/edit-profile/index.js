@@ -20,6 +20,7 @@ function EditProfilePage() {
   const { id } = useParams();
 
   const token = localStorage.getItem("access_token");
+
   let decoded = "";
   if (token) {
     decoded = JwtDecode(token);
