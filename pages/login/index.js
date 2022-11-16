@@ -98,7 +98,7 @@ function Auth() {
               </button>
             </form>
             <div className="text-grey-dark mt-6">
-              Don't have an account?
+              Dont have an account?
               <Link
                 className="no-underline border-b border-blue text-blue"
                 href="/register"
