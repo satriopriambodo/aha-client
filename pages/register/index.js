@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Link from "next/link";
 
 function RegisterPage(props) {
   const router = useRouter();
@@ -117,12 +118,12 @@ function RegisterPage(props) {
 
           <div className="text-grey-dark mt-6">
             Already have an account?
-            <a
+            <Link
               className="no-underline border-b border-blue text-blue"
               href="/login"
             >
               Log in
-            </a>
+            </Link>
             .
           </div>
         </div>

@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 function Auth() {
   const router = useRouter();
@@ -96,6 +97,16 @@ function Auth() {
                 Log in
               </button>
             </form>
+            <div className="text-grey-dark mt-6">
+              Don't have an account?
+              <Link
+                className="no-underline border-b border-blue text-blue"
+                href="/register"
+              >
+                Sign up
+              </Link>
+              .
+            </div>
           </div>
         </div>
       </div>
